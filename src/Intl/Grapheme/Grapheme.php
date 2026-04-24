@@ -11,7 +11,7 @@
 
 namespace Symfony\Polyfill\Intl\Grapheme;
 
-\define('SYMFONY_GRAPHEME_CLUSTER_RX', ((float) \PCRE_VERSION < 10 ? (float) \PCRE_VERSION >= 8.32 : (float) \PCRE_VERSION >= 10.39) ? '\X' : Grapheme::GRAPHEME_CLUSTER_RX);
+\define('SYMFONY_GRAPHEME_CLUSTER_RX', Grapheme::GRAPHEME_CLUSTER_RX);
 
 /**
  * Partial intl implementation in pure PHP.
@@ -126,9 +126,9 @@ final class Grapheme
             $len = 2147483647;
         }
 
-        preg_match_all('/'.SYMFONY_GRAPHEME_CLUSTER_RX.'/u', $s, $s);
+        preg_match_all('/'.SYMFONY_GRAPHEME_CLUSTER_RX.'/u', $s, $m);
 
-        $slen = \count($s[0]);
+        $slen = \count($m[0]);
         $start = (int) $start;
 
         if (0 > $start) {
@@ -160,7 +160,7 @@ final class Grapheme
             $len = $rem;
         }
 
-        return implode('', \array_slice($s[0], $start, $len));
+        return implode('', \array_slice($m[0], $start, $len));
     }
 
     public static function grapheme_strpos($s, $needle, $offset = 0)
