@@ -59,15 +59,15 @@ if (extension_loaded('mbstring')) {
     }
 
     if (!function_exists('mb_trim')) {
-        function mb_trim(string $string, ?string $characters = null, ?string $encoding = null) { return p\Php84::mb_trim($string, $characters, $encoding); }
+        function mb_trim(string $string, ?string $characters = null, ?string $encoding = null): string { return p\Php84::mb_trim($string, $characters, $encoding); }
     }
 
     if (!function_exists('mb_ltrim')) {
-        function mb_ltrim(string $string, ?string $characters = null, ?string $encoding = null) { return p\Php84::mb_ltrim($string, $characters, $encoding); }
+        function mb_ltrim(string $string, ?string $characters = null, ?string $encoding = null): string { return p\Php84::mb_ltrim($string, $characters, $encoding); }
     }
 
     if (!function_exists('mb_rtrim')) {
-        function mb_rtrim(string $string, ?string $characters = null, ?string $encoding = null) { return p\Php84::mb_rtrim($string, $characters, $encoding); }
+        function mb_rtrim(string $string, ?string $characters = null, ?string $encoding = null): string { return p\Php84::mb_rtrim($string, $characters, $encoding); }
     }
 }
 
